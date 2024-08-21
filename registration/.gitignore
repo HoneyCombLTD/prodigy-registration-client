@@ -29,3 +29,6 @@ local.properties
 stylesheet.css
 *.js
 *.dat
+.mosipkeys
+*.json
+db
