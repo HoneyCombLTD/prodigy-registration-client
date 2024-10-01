@@ -149,6 +149,7 @@ public class PacketHandlerController extends BaseController implements Initializ
 	private GridPane reRegistrationPane;
 	@FXML
 	private ImageView reRegistrationImageView;
+
 	@FXML
 	private GridPane dashBoardPane;
 	@FXML
@@ -521,6 +522,7 @@ public class PacketHandlerController extends BaseController implements Initializ
 		}
 		LOGGER.info("Loading Pending Approval screen ended.");
 	}
+
 
 	/**
 	 * Validating screen authorization and Uploading packets to FTP server

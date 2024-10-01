@@ -84,7 +84,7 @@ public class SyncStatusValidatorServiceImpl extends BaseService implements SyncS
 	@Autowired
 	private AuditManagerService auditFactory;
 
-	@Autowired
+	@Autowired(required = false)
 	private GeoPositionFacade geoPositionFacade;
 
 	/*

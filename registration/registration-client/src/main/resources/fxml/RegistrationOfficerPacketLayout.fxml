@@ -290,6 +290,7 @@
                   </Label>
                   <GridPane fx:id="eodProcessGridPane" GridPane.rowIndex="4">
                      <children>
+
                         <GridPane fx:id="eodApprovalPane" onMouseClicked="#approvePacket" styleClass="operationalPaneDetailsSync">
                            <children>
                               <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">

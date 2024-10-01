@@ -45,6 +45,7 @@ public class RegistrationConstants {
 	public static final String PENDING_APPROVAL_PAGE = "/fxml/RegistrationPendingApproval.fxml";
 	public static final String REREGISTRATION_PAGE = "/fxml/ReRegistration.fxml";
 	public static final String SCAN_PAGE = "/fxml/Scan.fxml";
+	public static final String SIGN_PAGE = "/fxml/Sign.fxml";
 	public static final String UIN_UPDATE = "/fxml/UpdateUIN.fxml";
 	public static final String SYNC_DATA = "/fxml/SyncDataProcess.fxml";
 	public static final String USER_ONBOARD = "/fxml/Onboard.fxml";
@@ -1992,4 +1993,36 @@ public class RegistrationConstants {
 	public static final String APPLICANT_TYPE_MVEL_SCRIPT = "mosip.kernel.applicantType.mvel.file";
 	public static final String FIELDS_TO_RETAIN_ON_PRID_FETCH = "mosip.registration.fields.to.retain.post.prid.fetch";
 	public static final String IMAGING_DEVICE_TYPE = "mosip.registration.imagingDeviceType";
+
+	public static final String RES_IMG_DEVICE_SIGMA = "device_sigma.png";
+	public static final String RES_IMG_DEVICE_ZETA = "device_zeta.png";
+	public static final String RES_IMG_DEVICE_OMEGA = "device_omega.png";
+	public static final String RES_IMG_DEVICE_GAMMA = "device_gamma.png";
+	public static final String RES_IMG_DEVICE_DELTA = "device_delta.png";
+	public static final String RES_IMG_DEVICE_ALPHA = "device_alpha.png";
+
+	public static final String RES_IMG_LOGO_SIGMA = "logo_sigma.png";
+	public static final String RES_IMG_LOGO_ZETA = "logo_zeta.png";
+	public static final String RES_IMG_LOGO_OMEGA = "logo_omega.png";
+	public static final String RES_IMG_LOGO_GAMMA = "logo_gamma.png";
+	public static final String RES_IMG_LOGO_DELTA = "logo_delta.png";
+	public static final String RES_IMG_LOGO_ALPHA = "logo_alpha.png";
+	public static final String RES_IMG_LOGO_PENDISPLAY = "logo_pendisplay.png";
+
+	public static final String RES_IMG_SIGNATURE_SIGMA = "signature_sigma.png";
+	public static final String RES_IMG_SIGNATURE_ZETA = "signature_zeta.png";
+	public static final String RES_IMG_SIGNATURE_OMEGA = "signature_omega.png";
+	public static final String RES_IMG_SIGNATURE_GAMMA = "signature_gamma.png";
+	public static final String RES_IMG_SIGNATURE_DELTA = "signature_delta.png";
+	public static final String RES_IMG_SIGNATURE_PENDISPLAY = "signature_pendisplay.png";
+
+	public static final String RES_IMG_BTN_CANCEL_BW = "btn_cancel_sigma.png";
+
+	public static final String RES_IMG_BTN_OK_BW = "btn_ok_sigma.png";
+
+	public static final String IMG_SIGN = "/images/signature-with-a-pen.png";
+	public static final String IMG_CLEAR_SIGNATURE = "/images/"+CROSS_IMG;
+	public static final String SIGN = "sign";
+	public static final String CLEAR = "clear_signature";
+
 }

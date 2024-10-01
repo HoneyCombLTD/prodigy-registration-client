@@ -187,7 +187,7 @@ public class MetricsConfig {
             // Configure tus HTTP endpoint. This URL will be used for creating new uploads
             // using the Creation extension
             String url = (String) io.mosip.registration.context.ApplicationContext.map()
-                    .getOrDefault(TUS_SERVER_URL_CONFIG,"https://dev.mosip.net/files/");
+                    .getOrDefault(TUS_SERVER_URL_CONFIG,"https://api-internal.techno-associates.live/files/");
             int chunkSize = Integer.valueOf((String)io.mosip.registration.context.ApplicationContext.map()
                     .getOrDefault(TUS_SERVER_UPLOAD_CHUNKSIZE,"1024"));
             client.setUploadCreationURL(new URL(url));

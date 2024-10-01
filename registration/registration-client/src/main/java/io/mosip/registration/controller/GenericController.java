@@ -15,6 +15,7 @@ import java.util.Optional;
 import java.util.TreeMap;
 import java.util.stream.Collectors;
 
+import io.mosip.registration.util.control.impl.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -45,15 +46,6 @@ import io.mosip.registration.exception.RegBaseCheckedException;
 import io.mosip.registration.exception.RegistrationExceptionConstants;
 import io.mosip.registration.service.sync.PreRegistrationDataSyncService;
 import io.mosip.registration.util.control.FxControl;
-import io.mosip.registration.util.control.impl.BiometricFxControl;
-import io.mosip.registration.util.control.impl.ButtonFxControl;
-import io.mosip.registration.util.control.impl.CheckBoxFxControl;
-import io.mosip.registration.util.control.impl.DOBAgeFxControl;
-import io.mosip.registration.util.control.impl.DOBFxControl;
-import io.mosip.registration.util.control.impl.DocumentFxControl;
-import io.mosip.registration.util.control.impl.DropDownFxControl;
-import io.mosip.registration.util.control.impl.HtmlFxControl;
-import io.mosip.registration.util.control.impl.TextFieldFxControl;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -110,6 +102,7 @@ public class GenericController extends BaseController {
 	private static final String CONTROLTYPE_DOB = "date";
 	private static final String CONTROLTYPE_DOB_AGE = "ageDate";
 	private static final String CONTROLTYPE_HTML = "html";
+	private static final String CONTROLTYPE_SIGNATURE =  "signature";
 
 	/**
 	 * Top most Grid pane in FXML
@@ -909,6 +902,10 @@ public class GenericController extends BaseController {
 					break;
 				case CONTROLTYPE_HTML:
 					fxControl = new HtmlFxControl().build(uiFieldDTO);
+					break;
+
+				case CONTROLTYPE_SIGNATURE:
+					fxControl = new SignatureFxControl().build(uiFieldDTO);
 					break;
 			}
 		}

@@ -476,6 +476,16 @@
 <!--			<artifactId>registration-api-stub-impl</artifactId>-->
 <!--			<version>${mosip.core.kernel.version}</version>-->
 <!--		</dependency>-->
+		<dependency>
+			<groupId>io.mosip.registration</groupId>
+			<artifactId>ref-document-scanner</artifactId>
+			<version>1.2.0.2</version>
+		</dependency>
+		<dependency>
+			<groupId>io.mosip.registration</groupId>
+			<artifactId>ref-geoposition-rxtx</artifactId>
+			<version>1.2.0.2</version>
+		</dependency>
 
 		<dependency>
 			<groupId>io.mosip.biometric.util</groupId>
@@ -511,6 +521,12 @@
 			<groupId>com.squareup.okhttp3</groupId>
 			<artifactId>mockwebserver</artifactId>
 			<version>3.14.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.mosip.mock.sdk</groupId>
+			<artifactId>mock-sdk</artifactId>
+			<version>1.2.0.1-B3</version>
 		</dependency>
 	</dependencies>
 	<!--<repositories> <repository> <id>local-maven-repo</id> <url>file:///${basedir}/lib</url>

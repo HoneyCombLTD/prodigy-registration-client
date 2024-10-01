@@ -16,7 +16,7 @@ public class GeoPositionFacade {
     private static final Logger LOGGER = LoggerFactory.getLogger(GeoPositionFacade.class);
     private static final String ENABLED = "Y";
 
-    @Autowired
+    @Autowired(required = false)
     private List<GeoPositionService> geoPositionServiceList;
 
     @Value("${mosip.registration.gps_serial_port_windows:}")

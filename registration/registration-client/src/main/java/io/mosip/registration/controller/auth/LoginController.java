@@ -15,6 +15,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.Set;
 
+import io.mosip.registration.controller.device.SignaturePopUpViewController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -213,6 +214,9 @@ public class LoginController extends BaseController implements Initializable {
 
 	@Autowired
 	private SoftwareUpdateHandler softwareUpdateHandler;
+
+	@Autowired
+	private SignaturePopUpViewController signaturePopUpViewController;
 
 	private BorderPane loginRoot;
 	private Service<List<String>> taskService;
@@ -1024,5 +1028,12 @@ public class LoginController extends BaseController implements Initializable {
 			generateAlert(RegistrationConstants.ERROR, RegistrationUIConstants.getMessageLanguageSpecific(RegistrationUIConstants.UNABLE_LOAD_LOGIN_SCREEN));
 		}
 
+	}
+
+	/**
+	 * show pop up screen for signing
+	 */
+	public void showSignaturePopUp(){
+		signaturePopUpViewController.init(this, "Sign With Pad");
 	}
 }
