@@ -120,7 +120,7 @@
           <children>
             <ImageView fx:id="mosipLogoImageView" fitHeight="34.0" fitWidth="30.0" layoutX="20.0" layoutY="2.0">
               <image>
-                <Image url="@../images/logo-final.png" />
+                <Image url="@../images/NIDA-small.png" />
               </image>
             </ImageView>
           </children>

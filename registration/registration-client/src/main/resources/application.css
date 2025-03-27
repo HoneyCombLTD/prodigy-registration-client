@@ -630,11 +630,11 @@
 Working on new Css by taleev
 */
 #loginScreen {
-	-fx-background-image: url('/images/prodigy_with_no_bg.png');
+	-fx-background-image: url('/images/NIDA-flag.png');
 	-fx-background-size: auto, auto;
 	-fx-background-repeat: no-repeat;
 	-fx-background-position: center, center;
-	-fx-background-color: linear-gradient(to right, #32a852, transparent);
+	-fx-background-color: linear-gradient(to right, #c0c645, transparent);
 }
 
 #header-section {
