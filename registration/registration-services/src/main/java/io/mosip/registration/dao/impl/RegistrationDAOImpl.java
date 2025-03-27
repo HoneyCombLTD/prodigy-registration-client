@@ -5,14 +5,11 @@ import static io.mosip.registration.constants.RegistrationConstants.APPLICATION_
 import static io.mosip.registration.constants.RegistrationConstants.APPLICATION_NAME;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 
 import javax.transaction.Transactional;
 
+import io.mosip.registration.dto.packetmanager.DocumentDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -112,6 +109,8 @@ public class RegistrationDAOImpl implements RegistrationDAO {
 
 			Object emailObj = registrationDTO.getDemographics().get(getKey(registrationDTO, RegistrationConstants.UI_SCHEMA_SUBTYPE_EMAIL));
 			Object phoneObj = registrationDTO.getDemographics().get(getKey(registrationDTO, RegistrationConstants.UI_SCHEMA_SUBTYPE_PHONE));
+
+			Map<String, DocumentDto> documents = registrationDTO.getDocuments();
 			
 			fullName.removeIf(Objects::isNull);
 			registrationDataDto.setName(String.join(RegistrationConstants.SPACE, fullName));
@@ -119,6 +118,7 @@ public class RegistrationDAOImpl implements RegistrationDAO {
 			registrationDataDto.setPhone(getAdditionalInfo(phoneObj));
 			registrationDataDto.setLangCode(String.join(RegistrationConstants.COMMA,
 					registrationDTO.getSelectedLanguagesByApplicant()));
+			registrationDataDto.setAdditionalDocumentInfo(documents);
 			
 			String additionalInfo = JsonUtils.javaObjectToJsonString(registrationDataDto);
 			registration.setAdditionalInfo(additionalInfo.getBytes());

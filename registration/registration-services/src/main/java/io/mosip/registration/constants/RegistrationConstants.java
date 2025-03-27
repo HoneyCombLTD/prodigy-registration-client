@@ -46,6 +46,7 @@ public class RegistrationConstants {
 	public static final String REREGISTRATION_PAGE = "/fxml/ReRegistration.fxml";
 	public static final String SCAN_PAGE = "/fxml/Scan.fxml";
 	public static final String SIGN_PAGE = "/fxml/Sign.fxml";
+	public static final String VIEW_DOCUMENTS_PAGE = "fxml/DocumentsView.fxml";
 	public static final String UIN_UPDATE = "/fxml/UpdateUIN.fxml";
 	public static final String SYNC_DATA = "/fxml/SyncDataProcess.fxml";
 	public static final String USER_ONBOARD = "/fxml/Onboard.fxml";

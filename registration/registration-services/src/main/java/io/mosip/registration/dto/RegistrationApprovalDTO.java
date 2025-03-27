@@ -15,6 +15,8 @@ public class RegistrationApprovalDTO {
 	private String statusComment;
 	private boolean hasBwords;
 
+	private byte[] additionalInfo;
+
 	/**
 	 * Instantiates a new registration approval DTO.
 	 *
@@ -88,5 +90,13 @@ public class RegistrationApprovalDTO {
 	
 	public boolean getHasBwords() {
 		return hasBwords;
+	}
+
+	public void setAdditionalInfo(byte[] additionalInfo) {
+		this.additionalInfo = additionalInfo;
+	}
+
+	public byte[] getAdditionalInfo() {
+		return additionalInfo;
 	}
 }

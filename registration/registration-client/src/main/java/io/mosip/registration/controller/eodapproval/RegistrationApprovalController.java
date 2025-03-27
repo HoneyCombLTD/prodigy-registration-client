@@ -23,6 +23,14 @@ import java.util.ResourceBundle;
 import java.util.WeakHashMap;
 import java.util.stream.Collectors;
 
+import io.mosip.kernel.core.util.JsonUtils;
+import io.mosip.kernel.core.util.exception.JsonMappingException;
+import io.mosip.kernel.core.util.exception.JsonParseException;
+import io.mosip.registration.controller.device.ViewDocumentsController;
+import io.mosip.registration.dao.RegistrationDAO;
+import io.mosip.registration.dto.RegistrationDataDto;
+import io.mosip.registration.entity.Registration;
+import javafx.scene.control.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -50,12 +58,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleButton;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -124,6 +126,9 @@ public class RegistrationApprovalController extends BaseController implements In
 	@FXML
 	private ToggleButton approvalBtn;
 
+	@FXML
+	private Button viewDocuments;
+
 	/** Button for rejection. */
 
 	@FXML
@@ -171,6 +176,9 @@ public class RegistrationApprovalController extends BaseController implements In
 	@Autowired
 	private EODAuthenticationController eodAuthenticationController;
 
+	@Autowired
+	private ViewDocumentsController viewDocumentsController;
+
 	private Stage primaryStage;
 
 	@FXML
@@ -178,6 +186,9 @@ public class RegistrationApprovalController extends BaseController implements In
 
 	@Autowired
 	private PacketHandlerService packetHandlerService;
+
+	@Autowired
+	private RegistrationDAO registrationDAO;
 
 	private ObservableList<RegistrationApprovalVO> observableList;
 
@@ -241,6 +252,7 @@ public class RegistrationApprovalController extends BaseController implements In
 		approvalBtn.setVisible(false);
 		rejectionBtn.setVisible(false);
 		imageAnchorPane.setVisible(false);
+		viewDocuments.setDisable(true);
 		filterField.clear();
 
 		slno.setCellValueFactory(
@@ -329,11 +341,10 @@ public class RegistrationApprovalController extends BaseController implements In
 		LOGGER.info(LOG_REG_PENDING_APPROVAL, APPLICATION_NAME, APPLICATION_ID,
 				"Displaying the Acknowledgement form started");
 		if (table.getSelectionModel().getSelectedItem() != null) {
-
+			viewDocuments.setDisable(false);
 			if (!approvalmapList.isEmpty()) {
 				authenticateBtn.setDisable(false);
 			}
-
 			webView.getEngine().loadContent(RegistrationConstants.EMPTY);
 
 			approvalBtn.setVisible(true);
@@ -730,6 +741,22 @@ public class RegistrationApprovalController extends BaseController implements In
 		DateTimeFormatter format = DateTimeFormatter
 				.ofPattern(RegistrationConstants.EOD_PROCESS_DATE_FORMAT_FOR_FILE);
 		return LocalDateTime.now().format(format);
+	}
+
+	public void viewAttachedDocuments(ActionEvent actionEvent){
+		Registration registration = registrationDAO.getRegistrationByPacketId(table.getSelectionModel().getSelectedItem().getPacketId());
+		if(registration!=null){
+			String additionalInfo = new String(registration.getAdditionalInfo());
+			if(additionalInfo!=null){
+				try {
+					RegistrationDataDto registrationDataDto = (RegistrationDataDto) JsonUtils.jsonStringToJavaObject(RegistrationDataDto.class, additionalInfo);
+					viewDocumentsController.init(this, "View Documents", (Map<String, String>) JsonUtils.jsonStringToJavaObject(Map.class, registrationDataDto.getDocs()));
+				} catch (JsonParseException | JsonMappingException | io.mosip.kernel.core.exception.IOException exception) {
+					LOGGER.error("VIEW_DOCUMENTS", APPLICATION_NAME, APPLICATION_ID,
+							exception.getMessage() + ExceptionUtils.getStackTrace(exception));
+				}
+			}
+		}
 	}
 
 }
