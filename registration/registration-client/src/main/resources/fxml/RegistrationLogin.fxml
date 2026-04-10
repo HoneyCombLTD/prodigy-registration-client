@@ -21,7 +21,7 @@
         <Label text="%mosip.io" />
         <Label text="  " />
         <Label text="%regClientVersion" />
-        <Label text=" : " />
+        <Label text="" />
         <Label fx:id="versionValueLabel" />
       </children>
     </HBox>
@@ -120,7 +120,7 @@
           <children>
             <ImageView fx:id="mosipLogoImageView" fitHeight="34.0" fitWidth="30.0" layoutX="20.0" layoutY="2.0">
               <image>
-                <Image url="@../images/NIDA-small.png" />
+                <Image url="@../images/ZamIdentitylogo.png" />
               </image>
             </ImageView>
           </children>

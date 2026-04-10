@@ -25,7 +25,7 @@ public class TestClientCryptoServiceImpl implements ClientCryptoService {
     }
 
     @Override
-    public byte[] signData(@NotNull byte[] dataToSign) throws ClientCryptoException {
+    public byte[] signData(byte[] dataToSign) throws ClientCryptoException {
         try {
             Signature sign = Signature.getInstance(SIGN_ALGORITHM);
             sign.initSign(getPrivateKey());
@@ -45,7 +45,7 @@ public class TestClientCryptoServiceImpl implements ClientCryptoService {
     }
 
     @Override
-    public boolean validateSignature(@NotNull byte[] signature, @NotNull byte[] actualData) throws ClientCryptoException {
+    public boolean validateSignature(byte[] signature, byte[] actualData) throws ClientCryptoException {
         try {
             X509EncodedKeySpec keySpec = new X509EncodedKeySpec(getPublicKey().getEncoded());
             KeyFactory kf = KeyFactory.getInstance(ALGORITHM);
@@ -57,7 +57,7 @@ public class TestClientCryptoServiceImpl implements ClientCryptoService {
     }
 
     @Override
-    public byte[] asymmetricEncrypt(@NotNull byte[] plainData) throws ClientCryptoException {
+    public byte[] asymmetricEncrypt(byte[] plainData) throws ClientCryptoException {
         try {
             return cryptoCore.asymmetricEncrypt(getPublicKey(), plainData);
         } catch (Exception ex) {
@@ -67,7 +67,7 @@ public class TestClientCryptoServiceImpl implements ClientCryptoService {
     }
 
     @Override
-    public byte[] asymmetricDecrypt(@NotNull byte[] cipher) throws ClientCryptoException {
+    public byte[] asymmetricDecrypt(byte[] cipher) throws ClientCryptoException {
         try {
             return cryptoCore.asymmetricDecrypt(getPrivateKey(), cipher);
         } catch (Exception ex) {

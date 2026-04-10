@@ -903,10 +903,6 @@ public class GenericController extends BaseController {
 				case CONTROLTYPE_HTML:
 					fxControl = new HtmlFxControl().build(uiFieldDTO);
 					break;
-
-				case CONTROLTYPE_SIGNATURE:
-					fxControl = new SignatureFxControl().build(uiFieldDTO);
-					break;
 			}
 		}
 

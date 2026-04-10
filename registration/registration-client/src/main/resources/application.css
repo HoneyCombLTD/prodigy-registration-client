@@ -630,11 +630,11 @@
 Working on new Css by taleev
 */
 #loginScreen {
-	-fx-background-image: url('/images/NIDA-flag.png');
-	-fx-background-size: auto, auto;
+	-fx-background-image: url('/images/ZamIdentitylogo.png');
+	-fx-background-size: 900, auto;
 	-fx-background-repeat: no-repeat;
-	-fx-background-position: center, center;
-	-fx-background-color: linear-gradient(to right, #c0c645, transparent);
+	-fx-background-position: left, center;
+	-fx-background-color: linear-gradient(to left, #c0c645, transparent);
 }
 
 #header-section {
